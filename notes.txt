@@ -1,0 +1,39 @@
+Hello World CMake
+-------------------
+
+Step1: Create a hello world C program (userprog.c)
+
+#include <stdio.h>
+int main()
+{
+	printf("Hello CMake\n");
+	return 0;
+}
+
+Step2: Create a file CMakeLists.txt in the same folder
+
+File CMakeLists.txt is the input to the CMake build system for building software packages
+
+It contains a set of directives and instructions describing the project's source files and targets (executable, library, or both)
+
+add_executable(userprog userprog.c)
+
+The above directive/instruction will build userprog executable from userprog.c file
+
+Step3: CMake generates a bunch of files in the place where we run it, so it’s good practice to have a separate directory for that
+
+$ mkdir build 
+$ cd build
+$ cmake ..
+
+.. as CMakeLists.txt is present in the parent directory
+
+The first time we run cmake in this directory it will take a few seconds, detecting the C and C++ compilers to use and some information about them
+
+The information CMake finds about the compiler is stored in CMakeCache.txt, one of the generated files, so it does not have to do the chores again every time we run it
+
+Step4: Generate the executable
+
+$ make
+or
+$ cmake --build .
