@@ -1,6 +1,11 @@
 #include <stdio.h>
+
 int main()
 {
-	printf("Hello CMake\n");
-	return 0;
+  #ifdef USE_SYSCALL
+    write(1,"HELLO System call",17);
+  #else
+    printf("Hello world\n");
+  #endif
+  return 0;
 }
